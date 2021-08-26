@@ -1,15 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="repository.nixxo" name="Nixxo's Repository" version="1.0.0" provider-name="nixxo">
+<addon id="repository.nixxo" name="Nixxo's Repository" version="1.0.1" provider-name="nixxo">
     <extension point="xbmc.addon.repository" name="Nixxo's Repository">
-        <info compressed="false">https://raw.githubusercontent.com/nixxo/nixxo.github.io/main/repo/addons.xml</info>
-        <checksum>https://raw.githubusercontent.com/nixxo/nixxo.github.io/main/repo/addons.xml.md5</checksum>
-        <datadir zip="true">https://raw.githubusercontent.com/nixxo/nixxo.github.io/main/repo/</datadir>
+        <info compressed="false">https://raw.githubusercontent.com/nixxo/repository.nixxo/main/repository/addons.xml</info>
+        <checksum>https://raw.githubusercontent.com/nixxo/repository.nixxo/main/repository/addons.xml.md5</checksum>
+        <datadir zip="true">https://raw.githubusercontent.com/nixxo/repository.nixxo/main/repository/</datadir>
     </extension>
     <extension point="xbmc.addon.metadata">
         <summary>Nixxo's Repository</summary>
         <description>A repository of add-ons that nixxo developed for a personal Kodi system</description>
         <disclaimer></disclaimer>
-        <news>1.0.0
+        <news>1.0.1
+- fixed datadir
+1.0.0
 - First release</news>
         <platform>all</platform>
         <language></language>
