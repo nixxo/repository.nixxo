@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-r"""
+"""
 Create a Kodi add-on repository from add-on sources
 
 This tool extracts Kodi add-ons from their respective locations and
@@ -81,7 +81,12 @@ INFO_BASENAME = 'addon.xml'
 METADATA_BASENAMES = (
     INFO_BASENAME,
     'icon.png',
+    'resources\\icon.png',
+    'resources\\images\\icon.png',
     'fanart.jpg',
+    'resources\\fanart.jpg',
+    'resources\\images\\fanart.jpg',
+    'resources\\images\\fanart.png',
     'LICENSE.txt')
 
 
@@ -170,7 +175,7 @@ def copy_metadata_files(source_folder, addon_target_folder, addon_metadata):
         if os.path.isfile(source_path):
             shutil.copyfile(
                 source_path,
-                os.path.join(addon_target_folder, target_basename))
+                os.path.join(addon_target_folder, target_basename.split('\\')[-1]))
 
 
 def on_remove_error(function, path, excinfo):
