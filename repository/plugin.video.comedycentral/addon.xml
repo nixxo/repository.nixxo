@@ -20,8 +20,8 @@
             v1.0.1[CR]-Added Featured Shows and Increased content size to include All Shows.</news>
         <forum>https://forum.kodi.tv/showthread.php?tid=326986</forum>
         <assets>
-            <icon>resources/images/icon.png</icon>
-            <fanart>resources/images/fanart.png</fanart>
+            <icon>icon.png</icon>
+            <fanart>fanart.png</fanart>
             <screenshot>resources/images/screenshot01.png</screenshot>
             <screenshot>resources/images/screenshot02.png</screenshot>
             <screenshot>resources/images/screenshot03.png</screenshot>
