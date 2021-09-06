@@ -24,7 +24,7 @@
             [0.0.1] first release
         </news>
         <assets>
-            <icon>icon.png</icon>
+            <icon>resources/icon.png</icon>
         </assets>
     </extension>
 </addon>

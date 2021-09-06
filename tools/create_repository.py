@@ -169,13 +169,19 @@ def generate_checksum(archive_path, is_binary=True, checksum_path_opt=None):
 
 
 def copy_metadata_files(source_folder, addon_target_folder, addon_metadata):
+    from pathlib import Path
+    #import web_pdb
+    #wweb_pdb.set_trace()
     for (source_basename, target_basename) in get_metadata_basenames(
             addon_metadata):
         source_path = os.path.join(source_folder, source_basename)
         if os.path.isfile(source_path):
+            base = target_basename.split('\\')
+            base.pop(-1)
+            Path(os.path.join(addon_target_folder, '/'.join(base))).mkdir(parents=True, exist_ok=True)
             shutil.copyfile(
                 source_path,
-                os.path.join(addon_target_folder, target_basename.split('\\')[-1]))
+                os.path.join(addon_target_folder, target_basename))
 
 
 def on_remove_error(function, path, excinfo):
