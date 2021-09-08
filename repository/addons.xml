@@ -80,7 +80,7 @@
             <icon>icon.png</icon>
         </assets>
     </extension>
-</addon><addon id="plugin.video.raitv" name="Rai Play" version="3.6.3-beta" provider-name="Nightflyer, cttynul, maxbambi, fabpolli">
+</addon><addon id="plugin.video.raitv" name="Rai Play" version="3.6.4-beta" provider-name="Nightflyer, cttynul, maxbambi, fabpolli">
   <requires>
         <import addon="xbmc.python" version="3.0.0" />    
         <import addon="script.common.plugin.cache" version="2.6.0" />
