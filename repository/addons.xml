@@ -24,9 +24,10 @@
             <fanart>resources/fanart.png</fanart>
         </assets>
     </extension>
-</addon><addon id="plugin.video.skyvideoitalia" name="Sky Video Italia" version="0.0.4" provider-name="nixxo">
+</addon><addon id="plugin.video.skyvideoitalia" name="Sky Video Italia" version="0.0.6" provider-name="nixxo">
     <requires>
         <import addon="xbmc.python" version="3.0.0" />
+        <import addon="script.module.simplecache" version="1.0.0" />
         <import addon="script.module.phate89" version="1.2.1+matrix.1" />
     </requires>
     <extension point="xbmc.python.pluginsource" library="default.py">
@@ -35,16 +36,18 @@
     <extension point="xbmc.addon.metadata">
         <summary lang="it_IT">Visualizza contenuti di Sky Video Italia</summary>
         <description lang="it_IT">Visualizza contenuti di Sky Video Italia</description>
-        <summary lang="en_GB">Visualizza contenuti di Sky Video Italia</summary>
-        <description lang="en_GB">Visualizza contenuti di Sky Video Italia</description>
+        <summary lang="en_GB">Show content from Sky Video Italia</summary>
+        <description lang="en_GB">Show content from Sky Video Italia</description>
         <language>it</language>
         <platform>all</platform>
         <license>GPL-3.0-or-later</license>
         <website>https://www.github.com/nixxo</website>
         <source>https://www.github.com/nixxo/plugin.video.skyvideoitalia</source>
-        <news>0.0.4
-- code improvements
-- added fanart to listitems
+        <news>0.0.6
+- code cleanup
+- added some more logos
+- thumb &gt; icon for playlist images
+- removed vod acces token method
         </news>
         <assets>
             <icon>resources/icon.png</icon>
