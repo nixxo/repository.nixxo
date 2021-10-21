@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<addon id="script.common.resume.strm.playback" name="Resume STRM playback" version="0.0.1" provider-name="nixxo">
+    <requires>
+        <import addon="xbmc.python" version="3.0.0" />
+    </requires>
+    <extension point="xbmc.python.script" library="default.py">
+        <provides>executable</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="it_IT">Riprendi visione dei file STRM</summary>
+        <description lang="it_IT">Aggiungi manualmente &quot;plugin://script.common.resume.strm.playback/?&quot; nei file STRM davanti all'URL che contengono.</description>
+        <summary lang="en_GB">Resume STRM playback</summary>
+        <description lang="en_GB">Manually add &quot;plugin://script.common.resume.strm.playback/?&quot; in yout STRM files as a prefix to the URL in them.</description>
+        <language>en</language>
+        <platform>all</platform>
+        <license>GPL-3.0-or-later</license>
+        <website>https://www.github.com/nixxo</website>
+        <source>https://www.github.com/nixxo/script.common.resume.strm.playback</source>
+        <news>[B]v0.0.1[/B]
+- first release</news>
+        <assets>
+            <icon>icon.png</icon>
+        </assets>
+    </extension>
+</addon>

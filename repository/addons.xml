@@ -1,10 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<addons><addon id="plugin.video.cc.com" version="1.0.0-alpha" name="Comedy Central" provider-name="nixxo">
+<addons><addon id="plugin.video.cc.com" version="0.0.2" name="Comedy Central" provider-name="nixxo">
     <requires>
         <import addon="xbmc.python" version="3.0.0" />
         <import addon="script.module.simplecache" version="1.0.0" />
-        <import addon="script.module.phate89" version="1.2.1+matrix.1" />
-        <import addon="script.module.youtube.dl" version="21.0.0" />
+        <import addon="script.module.web-pdb" version="1.5.6" optional="true" />
     </requires>
     <extension point="xbmc.python.pluginsource" library="default.py">
         <provides>video</provides>
@@ -16,15 +15,18 @@
         <license>GNU GENERAL PUBLIC LICENSE. Version 3, June 2007</license>
         <source>https://github.com/nixxo/plugin.video.cc.com</source>
         <website>https://www.cc.com/</website>
-        <news>v1.0.0
+        <news>[B]v0.0.2[/B]
+- playlist index fix
+- strptime workaround
+
+[B]v0.0.1[/B]
 - first release</news>
-        <forum>https://forum.kodi.tv/showthread.php?tid=326986</forum>
         <assets>
             <icon>resources/icon.png</icon>
             <fanart>resources/fanart.png</fanart>
         </assets>
     </extension>
-</addon><addon id="plugin.video.skyvideoitalia" name="Sky Video Italia" version="1.0.0" provider-name="nixxo">
+</addon><addon id="plugin.video.skyvideoitalia" name="Sky Video Italia" version="1.0.1" provider-name="nixxo">
     <requires>
         <import addon="xbmc.python" version="3.0.0" />
         <import addon="script.module.simplecache" version="1.0.0" />
@@ -42,9 +44,13 @@
         <license>GPL-3.0-or-later</license>
         <website>https://www.github.com/nixxo</website>
         <source>https://www.github.com/nixxo/plugin.video.skyvideoitalia</source>
-        <news>1.0.0
+        <news>[B]1.0.1[/B]
+- added missing logos
+- code improvements
+
+[B]1.0.0[/B]
 - first public release
-- code cleanup, unix eol</news>
+- code cleanup</news>
         <assets>
             <icon>resources/icon.png</icon>
             <fanart>resources/fanart.png</fanart>
@@ -119,4 +125,27 @@ Source: https://github.com/maxbambi/plugin.video.raitv/
       <fanart>resources/fanart.jpg</fanart>
     </assets>
   </extension>
+</addon><addon id="script.common.resume.strm.playback" name="Resume STRM playback" version="0.0.1" provider-name="nixxo">
+    <requires>
+        <import addon="xbmc.python" version="3.0.0" />
+    </requires>
+    <extension point="xbmc.python.script" library="default.py">
+        <provides>executable</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary lang="it_IT">Riprendi visione dei file STRM</summary>
+        <description lang="it_IT">Aggiungi manualmente "plugin://script.common.resume.strm.playback/?" nei file STRM davanti all'URL che contengono.</description>
+        <summary lang="en_GB">Resume STRM playback</summary>
+        <description lang="en_GB">Manually add "plugin://script.common.resume.strm.playback/?" in yout STRM files as a prefix to the URL in them.</description>
+        <language>en</language>
+        <platform>all</platform>
+        <license>GPL-3.0-or-later</license>
+        <website>https://www.github.com/nixxo</website>
+        <source>https://www.github.com/nixxo/script.common.resume.strm.playback</source>
+        <news>[B]v0.0.1[/B]
+- first release</news>
+        <assets>
+            <icon>icon.png</icon>
+        </assets>
+    </extension>
 </addon></addons>
