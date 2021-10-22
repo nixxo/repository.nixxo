@@ -125,9 +125,10 @@ Source: https://github.com/maxbambi/plugin.video.raitv/
       <fanart>resources/fanart.jpg</fanart>
     </assets>
   </extension>
-</addon><addon id="script.common.resume.strm.playback" name="Resume STRM playback" version="0.0.1" provider-name="nixxo">
+</addon><addon id="script.common.resume.strm.playback" name="Resume STRM playback" version="0.0.2" provider-name="nixxo">
     <requires>
         <import addon="xbmc.python" version="3.0.0" />
+        <import addon="script.module.web-pdb" version="1.5.6" optional="true" />
     </requires>
     <extension point="xbmc.python.script" library="default.py">
         <provides>executable</provides>
@@ -142,7 +143,10 @@ Source: https://github.com/maxbambi/plugin.video.raitv/
         <license>GPL-3.0-or-later</license>
         <website>https://www.github.com/nixxo</website>
         <source>https://www.github.com/nixxo/script.common.resume.strm.playback</source>
-        <news>[B]v0.0.1[/B]
+        <news>[B]v0.0.2[/B]
+- improved bahavior in widgets
+
+[B]v0.0.1[/B]
 - first release</news>
         <assets>
             <icon>icon.png</icon>
