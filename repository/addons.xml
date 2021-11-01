@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<addons><addon id="plugin.video.cc.com" version="0.0.2" name="Comedy Central" provider-name="nixxo">
+<addons><addon id="plugin.video.cc.com" version="0.0.3" name="Comedy Central" provider-name="nixxo">
     <requires>
         <import addon="xbmc.python" version="3.0.0" />
         <import addon="script.module.simplecache" version="1.0.0" />
@@ -15,7 +15,12 @@
         <license>GNU GENERAL PUBLIC LICENSE. Version 3, June 2007</license>
         <source>https://github.com/nixxo/plugin.video.cc.com</source>
         <website>https://www.cc.com/</website>
-        <news>[B]v0.0.2[/B]
+        <news>[B]v0.0.3[/B]
+- yt-dlp updated to 2021.10.22
+- pull listitem infos to set plot on all playlist elements
+- improved settings and localization
+
+[B]v0.0.2[/B]
 - playlist index fix
 - strptime workaround
 
@@ -125,7 +130,7 @@ Source: https://github.com/maxbambi/plugin.video.raitv/
       <fanart>resources/fanart.jpg</fanart>
     </assets>
   </extension>
-</addon><addon id="script.common.resume.strm.playback" name="Resume STRM playback" version="0.0.2" provider-name="nixxo">
+</addon><addon id="script.common.resume.strm.playback" name="Resume STRM playback" version="0.0.3" provider-name="nixxo">
     <requires>
         <import addon="xbmc.python" version="3.0.0" />
         <import addon="script.module.web-pdb" version="1.5.6" optional="true" />
@@ -143,7 +148,10 @@ Source: https://github.com/maxbambi/plugin.video.raitv/
         <license>GPL-3.0-or-later</license>
         <website>https://www.github.com/nixxo</website>
         <source>https://www.github.com/nixxo/script.common.resume.strm.playback</source>
-        <news>[B]v0.0.2[/B]
+        <news>[B]v0.0.3[/B]
+- added subtitle loading support
+
+[B]v0.0.2[/B]
 - improved bahavior in widgets
 
 [B]v0.0.1[/B]
