@@ -1,8 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<addons><addon id="plugin.video.cc.com" version="0.0.4" name="Comedy Central" provider-name="nixxo">
+<addons><addon id="plugin.video.cc.com" version="0.0.5" name="Comedy Central" provider-name="nixxo">
     <requires>
         <import addon="xbmc.python" version="3.0.0" />
         <import addon="script.module.simplecache" version="1.0.0" />
+        <import addon="script.module.inputstreamhelper" version="0.5.8" optional="true" />
         <import addon="script.module.web-pdb" version="1.5.6" optional="true" />
     </requires>
     <extension point="xbmc.python.pluginsource" library="default.py">
@@ -15,7 +16,12 @@
         <license>GNU GENERAL PUBLIC LICENSE. Version 3, June 2007</license>
         <source>https://github.com/nixxo/plugin.video.cc.com</source>
         <website>https://www.cc.com/</website>
-        <news>[B]v0.0.4[/B]
+        <news>[B]v0.0.5[/B]
+- added inputstream helper option
+- fixed single video title
+- settings cleanup
+
+[B]v0.0.4[/B]
 - using cache to save video info
 - added duration/airdate to videos
 - code improvements and cleanup
@@ -36,7 +42,7 @@
             <fanart>resources/fanart.png</fanart>
         </assets>
     </extension>
-</addon><addon id="plugin.video.skyvideoitalia" name="Sky Video Italia" version="1.0.1" provider-name="nixxo">
+</addon><addon id="plugin.video.skyvideoitalia" name="Sky Video Italia" version="1.0.2" provider-name="nixxo">
     <requires>
         <import addon="xbmc.python" version="3.0.0" />
         <import addon="script.module.simplecache" version="1.0.0" />
@@ -54,7 +60,10 @@
         <license>GPL-3.0-or-later</license>
         <website>https://www.github.com/nixxo</website>
         <source>https://www.github.com/nixxo/plugin.video.skyvideoitalia</source>
-        <news>[B]1.0.1[/B]
+        <news>[B]1.0.2[/B]
+- added live streams
+
+[B]1.0.1[/B]
 - added missing logos
 - code improvements
 
