@@ -46,6 +46,8 @@
     <requires>
         <import addon="xbmc.python" version="3.0.0" />
         <import addon="script.module.simplecache" version="1.0.0" />
+        <import addon="script.module.requests" version="2.25.0" />
+        <import addon="script.module.web-pdb" version="1.5.6" optional="true" />
     </requires>
     <extension point="xbmc.python.pluginsource" library="default.py">
         <provides>video</provides>
@@ -62,6 +64,7 @@
         <source>https://www.github.com/nixxo/plugin.video.skyvideoitalia</source>
         <news>[B]1.0.2[/B]
 - added live streams
+- fix localization
 
 [B]1.0.1[/B]
 - added missing logos
