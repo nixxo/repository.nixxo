@@ -1,12 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<addons><addon id="plugin.video.cc.com" version="0.0.5" name="Comedy Central" provider-name="nixxo">
+<addons><addon id="plugin.video.cc.com" version="0.0.6" name="Comedy Central" provider-name="nixxo">
     <requires>
         <import addon="xbmc.python" version="3.0.0" />
-        <import addon="script.module.simplecache" version="1.0.0" />
+        <import addon="script.module.simplecache" version="2.0.0" />
         <import addon="script.module.inputstreamhelper" version="0.5.8" optional="true" />
         <import addon="script.module.web-pdb" version="1.5.6" optional="true" />
     </requires>
-    <extension point="xbmc.python.pluginsource" library="default.py">
+    <extension point="xbmc.python.pluginsource" library="addon.py">
         <provides>video</provides>
     </extension>
     <extension point="xbmc.addon.metadata">
@@ -16,7 +16,13 @@
         <license>GNU GENERAL PUBLIC LICENSE. Version 3, June 2007</license>
         <source>https://github.com/nixxo/plugin.video.cc.com</source>
         <website>https://www.cc.com/</website>
-        <news>[B]v0.0.5[/B]
+        <news>[B]v0.0.6[/B]
+- improved translations
+- made settings.xml with kodi19 conventions
+- implemented better quality selection
+- added "Full Episodes" menu item
+
+[B]v0.0.5[/B]
 - added inputstream helper option
 - fixed single video title
 - settings cleanup
@@ -80,6 +86,28 @@
             <fanart>resources/fanart.png</fanart>
         </assets>
     </extension>
+</addon><addon id="plugin.video.vvvvid" version="0.0.1" name="VVVVID" provider-name="evilsephiroth, nixxo">
+    <requires>
+        <import addon="xbmc.python" version="3.0.0" />
+        <import addon="script.module.requests" />
+        <import addon="script.module.routing" version="0.2.3" />
+        <import addon="script.module.web-pdb" version="1.5.6" optional="true" />
+    </requires>
+    <extension point="xbmc.python.pluginsource" library="addon.py">
+        <provides>video</provides>
+    </extension>
+    <extension point="xbmc.addon.metadata">
+        <summary>VVVVID</summary>
+        <description>Plugin to view vvvvid.it content.</description>
+        <disclaimer>The author does not host or distribute any of the content displayed by this addon. The author does not have any affiliation with the content provider.</disclaimer>
+        <source>https://github.com/nixxo</source>
+		<website>https://github.com/nixxo</website>
+        <platform>all</platform>
+        <assets>
+            <icon>resources/icon.png</icon>
+            <fanart>resources/fanart.png</fanart>
+        </assets>
+    </extension>
 </addon><addon id="repository.nixxo" name="Nixxo's Repository" version="1.0.1" provider-name="nixxo">
     <extension point="xbmc.addon.repository" name="Nixxo's Repository">
         <info compressed="false">https://raw.githubusercontent.com/nixxo/repository.nixxo/main/repository/addons.xml</info>
@@ -104,51 +132,6 @@
             <icon>icon.png</icon>
         </assets>
     </extension>
-</addon><addon id="plugin.video.raitv" name="Rai Play" version="3.6.4-beta" provider-name="Nightflyer, cttynul, maxbambi, fabpolli">
-  <requires>
-        <import addon="xbmc.python" version="3.0.0" />    
-        <import addon="script.common.plugin.cache" version="2.6.0" />
-        <import addon="script.module.inputstreamhelper" />
-  </requires>
-  <extension point="xbmc.python.pluginsource" library="default.py">
-        <provides>video audio</provides>
-  </extension>
-  <extension point="xbmc.addon.metadata">
-    <language>it</language>
-    <platform>all</platform>
-    <summary lang="it_IT">I programmi delle reti Rai e i servizi interattivi</summary>
-    <description lang="it_IT">
-I canali radio e tv in diretta, gli ultimi 7 giorni di programmazione, le puntate integrali, i telegiornali.
-Source: https://github.com/maxbambi/plugin.video.raitv/
-      </description>
-    <summary lang="en_GB">The broadcasts of Rai channels and its interactive services</summary>
-    <description lang="en_GB">
-Live radio and TV channels, latest 7 days of programming, broadcast archive, news.
-Source: https://github.com/maxbambi/plugin.video.raitv/
-      </description>
-    <license>GPL-3.0-or-later</license>
-    <forum>https://forum.kodi.tv/showthread.php?tid=155922</forum>
-    <website>https://github.com/maxbambi/plugin.video.raitv/</website>
-    <email />
-    <news>
-[B]3.6.2[/B]
-- Raisport Web channels  
-
-[B]3.6.1[/B]
-- fix news section
-
-[B]3.6.0.2[/B]
-- fix in try except  
-
-[B]3.6.0[/B]
-- Fixes for Kodi 19 Matrix  
-    </news>
-    <source>https://github.com/maxbambi/plugin.video.raitv/</source>
-    <assets>
-      <icon>resources/icon.png</icon>
-      <fanart>resources/fanart.jpg</fanart>
-    </assets>
-  </extension>
 </addon><addon id="script.common.resume.strm.playback" name="Resume STRM playback" version="0.0.3" provider-name="nixxo">
     <requires>
         <import addon="xbmc.python" version="3.0.0" />
