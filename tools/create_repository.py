@@ -68,7 +68,7 @@ import tempfile
 import threading
 import xml.etree.ElementTree
 import zipfile
-
+from git_archive_all import GitArchiver as GA
 
 AddonMetadata = collections.namedtuple(
     'AddonMetadata', ('id', 'version', 'root'))
@@ -220,12 +220,10 @@ def fetch_addon_from_git(addon_location, target_folder):
             os.mkdir(addon_target_folder)
         archive_path = os.path.join(
             addon_target_folder, get_archive_basename(addon_metadata))
-        with open(archive_path, 'wb') as archive:
-            cloned.archive(
-                archive,
-                treeish='HEAD:{}'.format(clone_path),
-                prefix=get_posix_path(os.path.join(addon_metadata.id, '')),
-                format='zip')
+
+        archiver = GA('', False, False, None, os.path.abspath(clone_source_folder))
+        archiver.create(archive_path, False)
+
         generate_checksum(archive_path)
 
         copy_metadata_files(
