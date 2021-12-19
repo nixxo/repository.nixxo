@@ -170,8 +170,6 @@ def generate_checksum(archive_path, is_binary=True, checksum_path_opt=None):
 
 def copy_metadata_files(source_folder, addon_target_folder, addon_metadata):
     from pathlib import Path
-    #import web_pdb
-    #wweb_pdb.set_trace()
     for (source_basename, target_basename) in get_metadata_basenames(
             addon_metadata):
         source_path = os.path.join(source_folder, source_basename)
@@ -208,7 +206,7 @@ def fetch_addon_from_git(addon_location, target_folder):
     clone_folder = tempfile.mkdtemp('-repo')
     try:
         # Check out the sources.
-        cloned = git.Repo.clone_from(clone_repo, clone_folder)
+        cloned = git.Repo.clone_from(clone_repo, clone_folder, recurse_submodules=True)
         if clone_branch is not None:
             cloned.git.checkout(clone_branch)
         clone_source_folder = os.path.join(clone_folder, clone_path)
