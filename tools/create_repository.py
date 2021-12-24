@@ -67,8 +67,7 @@ import sys
 import tempfile
 import threading
 import xml.etree.ElementTree
-import zipfile
-from git_archive_all import GitArchiver as GA
+import zipfile_new as zipfile
 
 AddonMetadata = collections.namedtuple(
     'AddonMetadata', ('id', 'version', 'root'))
@@ -89,6 +88,20 @@ METADATA_BASENAMES = (
     'resources\\images\\fanart.png',
     'LICENSE.txt')
 
+CLEAN_FROM_ZIP = {
+    'files': [
+        '.git',
+        '.gitignore',
+        '.gitmodules',
+        'changelog.txt',
+        'README.md',
+    ],
+    'dirs': [
+        '.git',
+        '.vscode'
+    ]
+}
+
 
 # The specification for version numbers is at http://semver.org/.
 # The Kodi documentation at
@@ -98,6 +111,13 @@ VERSION_PATTERN = (r'^(0|[1-9]\d*)\.(0|[1-9]\d*)\.(0|[1-9]\d*)'
                    r'(?:[-~]((?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*)'
                    r'(?:\.(?:0|[1-9]\d*|\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?'
                    r'(?:\+([0-9a-zA-Z-]+(?:\.[0-9a-zA-Z-]+)*))?$')
+
+
+def dirs_to_skip(root, addon_id):
+    for d in CLEAN_FROM_ZIP['dirs']:
+        if root.startswith(os.path.join(addon_id, d)):
+            return True
+    return False
 
 
 def get_archive_basename(addon_metadata):
@@ -209,27 +229,33 @@ def fetch_addon_from_git(addon_location, target_folder):
         cloned = git.Repo.clone_from(clone_repo, clone_folder, recurse_submodules=True)
         if clone_branch is not None:
             cloned.git.checkout(clone_branch)
+
         clone_source_folder = os.path.join(clone_folder, clone_path)
+        return fetch_addon_from_folder(clone_source_folder, target_folder)
+        """
+        else:
+            metadata_path = os.path.join(clone_source_folder, INFO_BASENAME)
+            addon_metadata = parse_metadata(metadata_path)
+            addon_target_folder = os.path.join(target_folder, addon_metadata.id)
 
-        metadata_path = os.path.join(clone_source_folder, INFO_BASENAME)
-        addon_metadata = parse_metadata(metadata_path)
-        addon_target_folder = os.path.join(target_folder, addon_metadata.id)
+            # Create the compressed add-on archive.
+            if not os.path.isdir(addon_target_folder):
+                os.mkdir(addon_target_folder)
+            archive_path = os.path.join(
+                addon_target_folder, get_archive_basename(addon_metadata))
 
-        # Create the compressed add-on archive.
-        if not os.path.isdir(addon_target_folder):
-            os.mkdir(addon_target_folder)
-        archive_path = os.path.join(
-            addon_target_folder, get_archive_basename(addon_metadata))
+            archiver = GA(prefix=addon_metadata.id, main_repo_abspath=os.path.abspath(clone_source_folder))
+            archiver.create(archive_path, False)
 
-        archiver = GA('', False, False, None, os.path.abspath(clone_source_folder))
-        archiver.create(archive_path, False)
+            clean_zip(archive_path, addon_metadata.id)
 
-        generate_checksum(archive_path)
+            generate_checksum(archive_path)
 
-        copy_metadata_files(
-            clone_source_folder, addon_target_folder, addon_metadata)
+            copy_metadata_files(
+                clone_source_folder, addon_target_folder, addon_metadata)
 
-        return addon_metadata
+            return addon_metadata
+            """
     finally:
         shutil.rmtree(
             clone_folder,
@@ -248,16 +274,22 @@ def fetch_addon_from_folder(raw_addon_location, target_folder):
         os.mkdir(addon_target_folder)
     archive_path = os.path.join(
         addon_target_folder, get_archive_basename(addon_metadata))
+
     with zipfile.ZipFile(
             archive_path, 'w', compression=zipfile.ZIP_DEFLATED) as archive:
         for (root, dirs, files) in os.walk(addon_location):
             relative_root = os.path.join(
                 addon_metadata.id, os.path.relpath(root, addon_location))
+            if dirs_to_skip(relative_root, addon_metadata.id):
+                continue
             archive.write(root, relative_root)
             for relative_path in files:
+                if relative_path in CLEAN_FROM_ZIP['files']:
+                    continue
                 archive.write(
                     os.path.join(root, relative_path),
                     os.path.join(relative_root, relative_path))
+
     generate_checksum(archive_path)
 
     if not samefile(addon_location, addon_target_folder):
@@ -320,6 +352,7 @@ def fetch_addon(addon_location, target_folder):
         addon_metadata = fetch_addon_from_zip(addon_location, target_folder)
     else:
         raise RuntimeError('Path not found: {}'.format(addon_location))
+    print(addon_metadata.id + ' done.\n')
     return addon_metadata
 
 
