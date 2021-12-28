@@ -122,6 +122,26 @@
             <fanart>resources/fanart.png</fanart>
         </assets>
     </extension>
+</addon><addon id="skin.osmc" version="19.1.1" name="OSMC Skin" provider-name="OSMC">
+	<requires>
+		<import addon="xbmc.gui" version="5.15.0" />
+	</requires>
+	<extension point="xbmc.gui.skin" defaultthemename="Textures.xbt" effectslowdown="1.00" debugging="false">
+		
+		<res width="1920" height="1080" aspect="16:9" default="true" folder="xml" />
+		
+		
+	</extension>
+	<extension point="xbmc.addon.metadata">
+		<platform>all</platform>
+		<summary lang="en">The default skin for OSMC.</summary>
+		<description lang="en">Original skin: Andy Morton[CR]Original design: Simon Brunton[CR]Skinner: Julian Michel</description>
+		<assets>
+			<icon>resources/icon.png</icon>
+			<fanart>resources/fanart.jpg</fanart>
+		</assets>
+		<news>[B]New[/B][CR]- add new video/music OSD seek slider button functionality (also adds frame advance feature)[CR]- add settings level button and settings description to addon settings dialog[CR][CR][B]Improved[/B][CR]- improve behaviour of OSD bookmarks dialog while other OSD dialogs are open (similar to previous OSD animation improvements)[CR]- streamline addon settings and skinshortcuts customization dialogs[CR][CR][B]Fixed[/B][CR]- fix initial focus in all windows and dialogs</news>
+	</extension>
 </addon><addon id="repository.nixxo" name="Nixxo's Repository" version="1.0.1" provider-name="nixxo">
     <extension point="xbmc.addon.repository" name="Nixxo's Repository">
         <info compressed="false">https://raw.githubusercontent.com/nixxo/repository.nixxo/main/repository/addons.xml</info>
