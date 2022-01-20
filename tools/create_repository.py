@@ -228,34 +228,12 @@ def fetch_addon_from_git(addon_location, target_folder):
         # Check out the sources.
         cloned = git.Repo.clone_from(clone_repo, clone_folder, recurse_submodules=True)
         if clone_branch is not None:
+            print(f"checkout: {clone_branch}")
             cloned.git.checkout(clone_branch)
 
         clone_source_folder = os.path.join(clone_folder, clone_path)
         return fetch_addon_from_folder(clone_source_folder, target_folder)
-        """
-        else:
-            metadata_path = os.path.join(clone_source_folder, INFO_BASENAME)
-            addon_metadata = parse_metadata(metadata_path)
-            addon_target_folder = os.path.join(target_folder, addon_metadata.id)
 
-            # Create the compressed add-on archive.
-            if not os.path.isdir(addon_target_folder):
-                os.mkdir(addon_target_folder)
-            archive_path = os.path.join(
-                addon_target_folder, get_archive_basename(addon_metadata))
-
-            archiver = GA(prefix=addon_metadata.id, main_repo_abspath=os.path.abspath(clone_source_folder))
-            archiver.create(archive_path, False)
-
-            clean_zip(archive_path, addon_metadata.id)
-
-            generate_checksum(archive_path)
-
-            copy_metadata_files(
-                clone_source_folder, addon_target_folder, addon_metadata)
-
-            return addon_metadata
-            """
     finally:
         shutil.rmtree(
             clone_folder,
@@ -351,8 +329,8 @@ def fetch_addon(addon_location, target_folder):
     elif os.path.isfile(addon_location):
         addon_metadata = fetch_addon_from_zip(addon_location, target_folder)
     else:
-        raise RuntimeError('Path not found: {}'.format(addon_location))
-    print(addon_metadata.id + ' done.\n')
+        raise RuntimeError(f"Path not found: {addon_location}")
+    print(f"{addon_metadata.id} done.")
     return addon_metadata
 
 
