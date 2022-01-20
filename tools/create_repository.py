@@ -322,6 +322,7 @@ def fetch_addon_from_zip(raw_addon_location, target_folder):
 
 
 def fetch_addon(addon_location, target_folder):
+    print(f"Loading {addon_location}...")
     if is_url(addon_location):
         addon_metadata = fetch_addon_from_git(addon_location, target_folder)
     elif os.path.isdir(addon_location):
