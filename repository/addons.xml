@@ -1,10 +1,11 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<addons><addon id="plugin.video.cc.com" version="0.0.8-beta" name="Comedy Central" provider-name="nixxo">
+<addons><addon id="plugin.video.cc.com" version="1.0.0" name="Comedy Central" provider-name="nixxo">
     <requires>
         <import addon="xbmc.python" version="3.0.0" />
         <import addon="script.module.simplecache" version="2.0.0" />
         <import addon="script.module.requests" version="2.25.0" />
         <import addon="script.module.inputstreamhelper" version="0.5.8" optional="true" />
+        <import addon="script.module.web-pdb" version="1.5.6" optional="true" />
     </requires>
     <extension point="xbmc.python.pluginsource" library="addon.py">
         <provides>video</provides>
@@ -16,7 +17,11 @@
         <license>GNU GENERAL PUBLIC LICENSE. Version 3, June 2007</license>
         <source>https://github.com/nixxo/plugin.video.cc.com</source>
         <website>https://www.cc.com/</website>
-        <news>[B]0.0.7[/B]
+        <news>[B]1.0.0[/B]
+- first release on kodi addons repo
+- final fixes
+
+[B]0.0.7[/B]
 - improved thumbnail setup
 - improved setContent
 - improved info extraction to avoid NoneType errors
@@ -152,7 +157,7 @@
 			<icon>resources/icon.png</icon>
 			<fanart>resources/fanart.jpg</fanart>
 		</assets>
-		<news>[B]Fixed[/B][CR]- always show OSD playlist button when expected</news>
+		<news>[B]New[/B][CR]- reset textboxes to top scrolling position during dialog or window switches[CR][CR][B]Improved[/B][CR]- improve inital window/dialog focus fix (only apply where needed)[CR][CR][B]Fixed[/B][CR]- always show OSD playlist button when expected</news>
 	</extension>
 </addon><addon id="repository.nixxo" name="Nixxo's Repository" version="1.0.1" provider-name="nixxo">
     <extension point="xbmc.addon.repository" name="Nixxo's Repository">
@@ -178,7 +183,7 @@
             <icon>icon.png</icon>
         </assets>
     </extension>
-</addon><addon id="script.common.resume.strm.playback" name="Resume STRM playback" version="0.0.3" provider-name="nixxo">
+</addon><addon id="script.common.resume.strm.playback" name="Resume STRM playback" version="0.0.4" provider-name="nixxo">
     <requires>
         <import addon="xbmc.python" version="3.0.0" />
         <import addon="script.module.web-pdb" version="1.5.6" optional="true" />
@@ -196,7 +201,10 @@
         <license>GPL-3.0-or-later</license>
         <website>https://www.github.com/nixxo</website>
         <source>https://www.github.com/nixxo/script.common.resume.strm.playback</source>
-        <news>[B]v0.0.3[/B]
+        <news>[B]v0.0.4[/B]
+- improved subtitle loading
+
+[B]v0.0.3[/B]
 - added subtitle loading support
 
 [B]v0.0.2[/B]

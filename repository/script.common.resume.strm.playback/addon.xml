@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<addon id="script.common.resume.strm.playback" name="Resume STRM playback" version="0.0.3" provider-name="nixxo">
+<addon id="script.common.resume.strm.playback" name="Resume STRM playback" version="0.0.4" provider-name="nixxo">
     <requires>
         <import addon="xbmc.python" version="3.0.0" />
         <import addon="script.module.web-pdb" version="1.5.6" optional="true"/>
@@ -17,7 +17,10 @@
         <license>GPL-3.0-or-later</license>
         <website>https://www.github.com/nixxo</website>
         <source>https://www.github.com/nixxo/script.common.resume.strm.playback</source>
-        <news>[B]v0.0.3[/B]
+        <news>[B]v0.0.4[/B]
+- improved subtitle loading
+
+[B]v0.0.3[/B]
 - added subtitle loading support
 
 [B]v0.0.2[/B]
