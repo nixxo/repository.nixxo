@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "repo-tools"
+version = "0.1.0"
+description = "tool to create a kod repo files"
+authors = ["nixxo <nixxo@protonmail.com>"]
+readme = "README.md"
+packages = [{include = "repo_tools"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+GitPython = "^3.1.31"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
